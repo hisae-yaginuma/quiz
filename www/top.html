@@ -1,0 +1,25 @@
+<ons-page>
+<div class="bg">
+    <div class="title">
+        <h1><span>Color Universal Design</span><br>クイズ</h1>
+        <p>誰もが見分けやすく</p><br>
+        <p>美しい配色のための知識</p>
+    </div>
+    <form class="form" ng-controller="topCtrl as top">
+  <button id="style" ng-click="top.changeTheme()" />
+    １</button>
+  <button id="style" ng-click="bgClass='ver2'" />
+    ２</button>
+  <button id="style" ng-click="bgClass='ver3'" />
+    ３</button>
+    <button id="style" ng-click="bgClass='ver4'" />
+    ＊</button>
+
+</form>
+    <div class="start-btn" ng-controller="topCtrl as top">
+        <ons-button modifier="large" ng-click="top.gameStart()">
+          Start
+        </ons-button>
+    </div>
+    </div>
+</ons-page>

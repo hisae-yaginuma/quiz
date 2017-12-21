@@ -1,0 +1,33 @@
+<ons-page>
+    <div ng-controller="gameCtrl as game">
+		<ons-toolbar>
+			<div class="left" ng-click="game.backTop()">
+				<ons-toolbar-button>
+					<ons-icon icon="ion-close-round" fixed-width="false" style="font-size: 26px; vertical-align: -4px"></ons-icon>
+				</ons-toolbar-button>
+			</div>
+			<div class="center">
+				Quiz App
+			</div>
+			<div class="right">
+				{{game.items.currentNum + 1}} / {{game.items.totalNum}}問目
+			</div>
+		</ons-toolbar>
+		<div class="question">
+			<p>
+				{{game.items.currentQ.text}}
+			</p>
+		</div>
+		<div class="choices">
+			<ons-row>
+                <ons-col width="50%" align="center" ng-repeat="choice in game.items.currentQ.choices track by $index">
+                    <div class="choice">
+                        <button class="button button--large--cta" ng-click="game.getAnswer($index)">
+        		  			{{choice}}
+        		  		</button>
+                    </div>
+    		  	</ons-col>
+			</ons-row>
+		</div>
+	</div>
+</ons-page>
