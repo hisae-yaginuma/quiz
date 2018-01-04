@@ -5,14 +5,9 @@ app.controller('topCtrl',function(){
     this.gameStart = function(){
         myNavigator.pushPage('game.html');
     }
-    this.changeTheme1 = function() {
-        // 背景色を変更
-        var page = document.getElementsByClassName("page__background")[0];
-        page.style.backgroundColor = "white"
-        
-        // タイトルのカラー変更
-        var title = document.getElementsByClassName("title")[0];
-        title.style.color = "black";
+    this.changeTheme = function(theme) {
+      var page = document.getElementById("bgTheme")
+      page.className = theme;
     }
 });
 
@@ -22,14 +17,14 @@ app.controller('gameCtrl',function(questionsService,$scope){
     var rightNum = 0;//正解数
     var anserNum = null;//正解番号
     var questions = null;//クイズデータ
-    
+
     var init = function(){
         me.items.currentNum = 0;//現在のクイズ番号(1問目)
         questions = JSON.parse(JSON.stringify(questionsService.questions));//クイズデータをサービスより取得&ディープコピー
         me.items.totalNum = questions.length;//取得したクイズデータの全クイズ数
         questionInit();
     }
-    
+
     //解答選択肢用意
     var questionInit = function(){
         var currentQ = questions[me.items.currentNum];//現在のクイズ
@@ -38,7 +33,7 @@ app.controller('gameCtrl',function(questionsService,$scope){
         currentQ.choices.splice(answerNum , 0 , currentQ.answer);//選択肢に答えを混ぜる
         me.items.currentQ = currentQ;//現在のクイズをデータバインド用オブジェクトに代入
     };
-    
+
     //解答ボタンが押されたら
     me.getAnswer = function(ind){
     	var flag = answerNum == ind;//正解か間違いか判定
@@ -62,7 +57,7 @@ app.controller('gameCtrl',function(questionsService,$scope){
 			  }
 		});
     };
-    
+
     //closeボタンがクリックされたらトップページへ戻る
     me.backTop = function(){
         myNavigator.pushPage('top.html', { animation: "fade" });

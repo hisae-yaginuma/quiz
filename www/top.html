@@ -6,13 +6,13 @@
         <p>美しい配色のための知識</p>
     </div>
     <form class="form" ng-controller="topCtrl as top">
-  <button id="style" ng-click="top.changeTheme()" />
+  <button id="style" ng-click="top.changeTheme('bgTheme1')" />
     １</button>
-  <button id="style" ng-click="bgClass='ver2'" />
+  <button id="style" ng-click="top.changeTheme('bgTheme2')" />
     ２</button>
-  <button id="style" ng-click="bgClass='ver3'" />
+  <button id="style" ng-click="top.changeTheme('bgTheme3')" />
     ３</button>
-    <button id="style" ng-click="bgClass='ver4'" />
+    <button id="style" ng-click="top.changeTheme('bgTheme4')" />
     ＊</button>
 
 </form>
@@ -21,5 +21,5 @@
           Start
         </ons-button>
     </div>
-    </div>
+  </div>
 </ons-page>
